@@ -1,0 +1,170 @@
+{% if request.user.is_authenticated %}
+<meta http-equiv="refresh" content="0; url='/'">
+<script>alert('Login Required ')</script>
+{% else %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.7.4.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <style>.double-nav .breadcrumb-dn {
+    color: #fff;
+}
+.side-nav.wide.slim .sn-ad-avatar-wrapper a span {
+  display: none;
+}
+    </style>
+    <style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+</head>
+<body class="fixed-sn mdb-skin" aria-busy="true">
+
+<!--Double navigation-->
+<header>
+    <!-- Sidebar navigation -->
+    <div id="slide-out" class="side-nav fixed wide sn-bg-1" style="transform: translateX(0%);">
+        <ul class="custom-scrollbar">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper sn-ad-avatar-wrapper">
+                    <a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i><span>{{request.user.first_name}}</span></a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li class="active"><a class="collapsible-header waves-effect arrow-r active"><i
+                            class="sv-slim-icon fas fa-chevron-right"></i> Submit blog<i
+                            class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body" style="display: block;">
+                            <ul>
+                                <li><a href="#" class="waves-effect active">
+                                    <span class="sv-slim"> SL </span>
+                                    <span class="sv-normal">Submit listing</span></a>
+                                </li>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> RF </span>
+                                    <span class="sv-normal">Registration form</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i
+                            class="sv-slim-icon far fa-hand-point-right"></i> Instruction<i
+                            class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> FB </span>
+                                    <span class="sv-normal">For bloggers</span></a>
+                                </li>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> FA </span>
+                                    <span class="sv-normal">For authors</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="sv-slim-icon fas fa-eye"></i> About<i
+                            class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> I </span>
+                                    <span class="sv-normal">Introduction</span></a>
+                                </li>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> MM </span>
+                                    <span class="sv-normal">Monthly meetings</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="sv-slim-icon far fa-envelope"></i>
+                        Contact me<i class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> F </span>
+                                    <span class="sv-normal">FAQ</span></a>
+                                </li>
+                                <li><a href="#" class="waves-effect">
+                                    <span class="sv-slim"> W </span>
+                                    <span class="sv-normal">Write a message</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a id="toggle" class="waves-effect"><i class="sv-slim-icon fas fa-angle-double-left"></i>Minimize
+                        menu</a>
+                    </li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+        </ul>
+        <div class="sidenav-bg rgba-blue-strong"></div>
+    </div>
+    <!--/. Sidebar navigation -->
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn mr-auto">
+            <p>GIT Mess</p>
+        </div>
+        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light"><i class="fas fa-envelope"></i> <span
+                        class="clearfix d-none d-sm-inline-block">Contact</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light"><i class="fas fa-comments"></i> <span
+                        class="clearfix d-none d-sm-inline-block">Support</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light"><i class="fas fa-user"></i> <span
+                        class="clearfix d-none d-sm-inline-block">Account</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" href="#" id="navbarDropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.Navbar -->
+</header>
+<!--/.Double navigation-->
+
+<!--Main Layout-->
+<main>
+    <div class="container-fluid mt-5">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+<!--Main Layout-->
+
+<script type="text/javascript"
+        src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled-4.7.4.min.js"></script>
+<div class="hiddendiv common"></div>
+<script type="text/javascript">// SideNav Initialization
+$(".button-collapse").sideNav();
+
+new WOW().init();
+</script>
+<div class="drag-target" style="left: 0px;"></div>
+</body>
+</html>
+{% endif %}

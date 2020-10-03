@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>OTP Verification</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <style>
+    .divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+    </style>
+    <style>
+                   .col-md-3
+          {
+          display: inline-block;
+          margin-left:-4px;
+          }
+
+        .navbar{
+        background-color:#243a51;
+        }
+          .carousel-indicators .active {
+          background-color: blue;
+            }
+
+
+
+    </style>
+</head>
+<body style="background-color:#e9f3f5">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-navbar">
+    <a class="navbar-brand" href="#">GIT Mess</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<div class="container" style="margin-top:110px">
+
+    {% if messages %}
+    <center>
+        {% for message in messages %}
+        <div id="disclaimer" class="alert alert-dismissible alert-danger fade show w-50" style="margin-top:-50px ">
+            <button class="close" onclick="document.getElementById('disclaimer').style.display='none'" data-dismiss="alert">&times;</button>
+            {{message}}
+        </div>
+        {% endfor %}
+    </center>
+    {% endif %}
+
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Verification of Email Account</p>
+            </p>
+            <br>
+            <p>Check Your Mail including Spam Folder For OTP</p>
+            <form style="width:360px" action="CreateUser/" method="POST">
+                {% csrf_token %}
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+                    </div>
+                    <input name="OTP" maxlength=4 minlength="4" required class="form-control" type="tel">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Validate OTP</button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Have an account? <a href="/">Log In</a></p>
+            </form>
+        </article>
+    </div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+<br><br>
+<article class="bg-secondary mb-3">
+    <div class="card-body text-center">
+        <h3 class="text-white mt-3">Bootstrap 4 UI KIT</h3>
+        <p class="h5 text-white">Components and templates <br> for Ecommerce, marketplace, booking websites
+            and product landing pages</p>   <br>
+        <p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com
+            <i class="fa fa-window-restore "></i></a></p>
+    </div>
+    <br><br>
+</article>
+</body>
+</html>

@@ -1,0 +1,590 @@
+{% load static %}
+<html>
+<head>
+    <title>GIT Mess</title>
+    <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.8.0.min.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/fontawesome-free/css/all.min.css"
+          rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/simple-line-icons/css/simple-line-icons.css"
+          rel="stylesheet">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.min.css"
+          rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.8.1.min.css">
+          <script src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled-4.8.1.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    .intro-2 {
+        background: url("{% static 'images/cap.jpg' %}")no-repeat center center;
+        background-size: cover;
+    }
+
+    .navbar {
+        min-height:65px;
+        background-color: transparent;
+    }
+
+    .top-nav-collapse {
+        background-color: #243a51;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .navbar {
+            background-color: #243a51;
+        }
+    }
+    html,
+    body,
+    header,
+    .view {
+        height: 100%;
+        }
+
+
+    </style>
+    <!-- Login Modal-->
+    <style>
+        /* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 40%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 60px;
+  margin-left: 30%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+
+    </style>
+    <style type="text/css">
+    /* Chart.js */
+    @-webkit-keyframes chartjs-render-animation{
+        from{opacity:0.99}
+        to{opacity:1}
+    }
+    @keyframes chartjs-render-animation{
+        from{opacity:0.99}
+        to{opacity:1}
+    }
+    .chartjs-render-monitor{
+        -webkit-animation:chartjs-render-animation 0.001s;
+        animation:chartjs-render-animation 0.001s;
+    }
+
+
+
+
+    </style>
+
+    <!-- Chat Pop Up -->
+    <style>
+        * {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 8px;
+  right: 45px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 17px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #F8F9FA;
+  margin: 0 0 0 0;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+</head>
+<body aria-busy="true"><!--Main Navigation-->
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong>GIT Mess</strong></a>
+        <pre>        </pre>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link waves-effect waves-light" href="#">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="#">Profile</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-buuttons ml-auto">
+                <li class="nav-item">
+                    <button class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'"
+                            style="width:auto;">Login
+                    </button>
+
+                    <div id="id01" class="modal">
+
+                        <form class="modal-content animate" action="/Auth/" method="post">
+                            {% csrf_token %}
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                                      title="Close Modal">&times;</span>
+                            </div>
+
+                            <div class="container">
+                                <label><b>Roll No</b></label>
+                                <input type="text" name="USERNAME" maxlength="10" minlength="10"
+                                       placeholder="Enter RollNo" style="background-color: #f6f6f6" required>
+                                <br>
+                                <label><b>Password</b></label>
+                                <input type="password" name="PASSWORD" placeholder="Enter Password"
+                                       style="background-color: #f6f6f6" required>
+
+                                <button type="submit">Login</button>
+                            </div>
+
+                            <div class="container" style="background-color:#f6f6f6">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                                        class="cancelbtn">Cancel
+                                </button>
+                                <a href="/ForgetPassword/"
+                                   style="float:right; margin-top:20px"><b>ForgetPassword?</b></a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+                    </script>
+                </li>
+                <li class="nav-item">
+                    <a href="/SignUp/">
+                        <button class="btn btn-primary" style="width:auto;">Sign Up</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="view intro-2">
+        <div class="full-bg-img">
+            <div class="mask flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <h2 style="background-color: white;color:blue;margin-left: 21%;margin-right: 21%">Global Institute Mess Management System</h2>
+                    <br>
+                    <h5>A Effort For Students By Students.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<!--Main Navigation-->
+
+<!--Main Layout-->
+<main class="text-center">
+    <!-- About -->
+    <section class="content-section bg-light" id="about">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h3>AIM:</h3>
+                    <p class="lead mb-5">This Website is meant to improve the quality of food by taking reviews from the students and to provide relevent information to students at one place.</p>
+                    <h3>Features:</h3>
+                    <p class="lead mb-5">This website has a student view and parent or visitor's view with their respective features.
+                    A Student can give a star based rating or post a review with a image. Visitors and Parents are only allowed to view rating and reviews.
+                    You Can also contact us By leaving a message in the message section. 
+                    </p>
+                    <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">Know Features Here</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-0">Services</h3>
+                <h2 class="mb-5">Feature We Offer</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <!-- for 5- star -->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <h4 style="margin-top: 15px">
+                        <strong>Submit Ratings</strong>
+                    </h4>
+                    <p class="text-faded mb-0">Provide Rating Out of 5-star</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <span class="fa fa-pencil" style="font-size:px;color:red"
+                    <h4>
+                        <strong>Post Comments</strong>
+                    </h4>
+                    <p class="text-faded mb-0">Comment With Images</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="mx-auto mb-3">
+            <i class="icon-like "></i>
+          </span>
+                    <h4>
+                        <strong>Know Schedule</strong>
+                    </h4>
+                    <p class="text-faded mb-0">View Mess Schedule 
+                </div>
+                <div class="col-lg-3 col-md-6">
+          <span class="mx-auto mb-3">
+            <i class="material-icons" style="font-size:36px">star_rate</i>
+          </span>
+                    <h4>
+                        <strong>Get Notification</strong>
+                    </h4>
+                    <p class="text-faded mb-0">Get Announcement and Notification</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="content-section" id="portfolio">
+        <div class="container">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">Portfolio</h3>
+                <h2 class="mb-5">Recent Projects</h2>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Stationary</h2>
+                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+              </span>
+            </span>
+                        <img class="img-fluid"
+                             src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-1.jpg"
+                             alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Ice Cream</h2>
+                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+              </span>
+            </span>
+                        <img class="img-fluid"
+                             src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-2.jpg"
+                             alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Strawberries</h2>
+                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+              </span>
+            </span>
+                        <img class="img-fluid"
+                             src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-3.jpg"
+                             alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Workspace</h2>
+                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+              </span>
+            </span>
+                        <img class="img-fluid"
+                             src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg"
+                             alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+            <h1 style="margin-bottom: 20px">Connect With Us </h1>
+            <div class="container">
+                    <ul class="list-inline mb-5">
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white mr-3" href="#">
+                                <i class="icon-social-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white mr-3" href="#">
+                                <i class="icon-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-link rounded-circle text-white" href="#">
+                                <i class="fa fa-youtube-play" style="font-size:48px;color:red"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+    </section>
+
+    <!-- Map -->
+    <section id="contact" class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14246.466902664146!2d75.8337307!3d26.7884847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8657d2623832e7cc!2sGlobal+Institute+of+Technology!5e0!3m2!1sen!2sin!4v1562496925975!5m2!1sen!2sin"
+                width="100%" height="100%" frameborder="0"></iframe>
+        <br>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <!-- <div class="container">
+            <ul class="list-inline mb-5">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="#">
+                        <i class="icon-social-facebook"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="#">
+                        <i class="icon-social-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white" href="#">
+                        <i class="icon-social-github"></i>
+                    </a>
+                </li>
+            </ul> -->
+            <p class="text-muted small mb-0">Copyright © Your Website 2019</p>
+        </div>
+    </footer>
+
+    <button class="open-button" onclick="openForm()"><i class="fa fa-envelope"></i>&nbsp;&nbsp;Offline-Leave a Message
+    </button>
+    <div class="chat-popup" id="myForm">
+        <span onclick="document.getElementById('myForm').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+        <form action="/ContactLogin/" class="form-container" method="post">
+            {% csrf_token %}
+            <h3>Contact Us</h3>
+            <input type="text" align="center" name="USERNAME" placeholder="Enter Roll No">
+            <input type="email" align="center" name="EMAIL" placeholder="Enter Email ID">
+            <textarea placeholder="Type message.." name="DESCRIPTION" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
+
+    <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+
+    </script>
+
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#" style="height:58px;width:25px;display: none;">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/jquery/jquery.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/js/stylish-portfolio.min.js"></script>
+
+
+</main>
+<!--Main Layout-->
+<script type="text/javascript"
+        src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled-4.8.0.min.js"></script>
+<div class="hiddendiv common"></div>
+<script type="text/javascript"></script>
+</body>
+</html>
